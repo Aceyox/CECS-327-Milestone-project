@@ -35,7 +35,7 @@ python -m venv .venv
 pip install pika
 
 # Ensure RabbitMQ service is running:
-
+```
 net start RabbitMQ
 
 
@@ -46,6 +46,57 @@ rabbitmq-plugins enable rabbitmq_management
 
 Access UI at:
 
+```
 http://localhost:15672
 User: guest
 Pass: guest
+```
+## Running the Subscriber
+
+Default mode (receives all alerts):
+```
+.\.venv\Scripts\python.exe .\subscriber_rabbit.py
+```
+## General syntax:
+```
+subscriber_rabbit.py <queue_name> <binding_key>
+```
+
+Example binding keys:
+
+Binding Key	Meaning
+alerts.#	receive all alerts
+alerts.fire	receive only fire alerts
+alerts.flood	receive only flood alerts
+
+## Running the Publisher
+```
+.\.venv\Scripts\python.exe .\publisher_rabbit.py
+```
+
+The publisher sends multiple sample alerts using a topic exchange named alerts.
+
+##Testing via RabbitMQ UI (Manual Publish)
+
+You can manually publish a message through the UI without using the Python publisher.
+
+1. Open http://localhost:15672
+
+2. Navigate to Exchanges
+
+3. Click on the alerts exchange
+
+4. Scroll to Publish message
+
+5. Use routing key, for example:
+```
+alerts.powerout
+```
+## Use JSON payload:
+```
+{"type":"powerout","message":"UI test: outage in Zone 3","severity":"medium","timestamp":"now"}
+```
+
+
+
+
