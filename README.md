@@ -33,3 +33,19 @@ This project demonstrates RabbitMQ topic-based messaging using a Python publishe
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install pika
+
+# Ensure RabbitMQ service is running:
+
+net start RabbitMQ
+
+
+(Optional) Enable the RabbitMQ management UI:
+
+rabbitmq-plugins enable rabbitmq_management
+
+
+Access UI at:
+
+http://localhost:15672
+User: guest
+Pass: guest
