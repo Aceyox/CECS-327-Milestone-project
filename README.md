@@ -98,5 +98,10 @@ alerts.powerout
 ```
 
 
+##Screenshots
+<img width="1500" height="1360" alt="image" src="https://github.com/user-attachments/assets/32700996-f77b-4f01-81ab-2982453627ff" />
+When the subscriber receives a published alert, it prints the routing key, alert type, severity, message, and timestamp. The output confirms that the queue is bound correctly to the topic exchange and that messages are being routed successfully.
+
+
 
 
