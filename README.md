@@ -17,3 +17,19 @@ Salvador Sanchez
 This project demonstrates a **publish–subscribe (pub/sub)** alert system using **RabbitMQ** and Python’s **`pika`** library.  
 A **publisher** sends JSON alerts (earthquake, fire, flood, weather) to a **topic exchange** named `alerts`.  
 One or more **subscribers** create their own queues and bind with patterns (e.g., `alerts.fire`, `alerts.*`, `alerts.#`) to receive relevant messages.
+
+## Alert 
+This project demonstrates RabbitMQ topic-based messaging using a Python publisher and subscriber. The publisher sends structured alert messages (fire, flood, weather, etc.) while the subscriber listens on a bound queue and prints received alerts.
+
+## Prerequisites (Windows)
+
+- Python 3.9+
+- RabbitMQ server running on localhost
+- `pika` Python package
+
+## Setup
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install pika
