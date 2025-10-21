@@ -98,10 +98,25 @@ alerts.powerout
 ```
 
 
-##Screenshots
+## Screenshots
 <img width="1500" height="1360" alt="image" src="https://github.com/user-attachments/assets/32700996-f77b-4f01-81ab-2982453627ff" />
 When the subscriber receives a published alert, it prints the routing key, alert type, severity, message, and timestamp. The output confirms that the queue is bound correctly to the topic exchange and that messages are being routed successfully.
 
+
+<img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/15f8f674-7552-48be-a601-f8853016bb7d" />
+
+The screenshot below shows the subscriber receiving a message that was manually published through the RabbitMQ Management UI using the routing key `alerts.powerout`. This confirms that the subscriber is correctly bound to the topic exchange and can consume messages from both the Python publisher and UI-based manual input.
+
+<img width="1610" height="350" alt="image" src="https://github.com/user-attachments/assets/117b9a25-d2ef-41b6-8c2b-fe83b583dca9" />
+
+The publisher prints a confirmation for each alert it sends to the `alerts` exchange, showing the routing key used and a preview of the message. When all alerts are sent, it prints "All alerts published!". This confirms the messages were successfully pushed into RabbitMQ and are ready to be consumed by any subscribers bound to the exchange.
+
+
+
+## Opitional 
+<img width="2022" height="985" alt="image" src="https://github.com/user-attachments/assets/f3939d66-abee-469a-9dfb-d8fff83d3586" />
+
+You can also publish alerts manually from the RabbitMQ Management UI by selecting the `alerts` exchange and using the "Publish message" panel. Enter a routing key such as `alerts.powerout` and a JSON payload. Any subscriber that is bound to a matching binding key (e.g., `alerts.#`) will immediately receive the message even without running the Python publisher.
 
 
 
