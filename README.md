@@ -13,28 +13,55 @@ Salvador Sanchez
 # Part 1: Direct Communication – Interprocess Communication (IPC)
 
 **Summary**
+---
 This project demonstrates direct interprocess communication (IPC) between two components of a Disaster Alert System (DAS) using TCP sockets and JSON messages in Python.
 
 A **client** simulates a disaster sensor that sends alert data to a server, which acts as a central aggregator. 
+
 The **server** receives and displays the alert details, then sends a confirmation message back to the client.
 
 **Alert**
+---
 The project shows how two processes communicate directly over a network using Python’s built-in socket library.
 The client sends a structured JSON alert containing disaster information, and the server decodes the message, prints the data in a readable format, and acknowledges receipt.
 
 # Clone or download the project folder
+```bash
 cd 327_Project
+python -m venv .venv
+source .venv/bin/activate 
+```
 
-**Running the Server**
+##  Running the Server
+
+
+```bash
 python server.py
+```
+<img width="561" height="171" alt="Screenshot 2025-10-21 at 7 30 29 PM" src="https://github.com/user-attachments/assets/6f685080-fa2b-4722-97a0-4636bb6c37a7"/>
 
-**Running the Client**
+---
+
+##  Running the Client
+
+
 Open another terminal window and run:
+```bash
 python client.py
+```
 
+<img width="554" height="36" alt="Screenshot 2025-10-21 at 7 36 30 PM" src="https://github.com/user-attachments/assets/2a7f71b8-a82d-465a-8d2d-1f64ab42dc45" />
 
+---
 
+**Technologies Used:**
+---
+- Python 3
+- socket
+- json
+- uuid
 
+---
 
 
 
