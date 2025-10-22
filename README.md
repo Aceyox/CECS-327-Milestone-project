@@ -63,6 +63,69 @@ python client.py
 
 ---
 
+# Part 2: Remote Communication – REST API
+
+**Summary**  
+---  
+This part of the Disaster Alert System demonstrates **remote communication** between the admin and clients using a **REST API built with FastAPI**.  
+The admin can send alert messages through an HTTP POST request, and clients can check the latest system status through an HTTP GET request.
+
+**Endpoints**  
+---  
+- **POST `/send_alert`** – Admin sends a new alert message and severity level.  
+- **GET `/get_status`** – Clients retrieve the latest alert and overall status.  
+
+Each alert is stored temporarily in memory with a timestamp to simulate real-time updates.
+
+**Running the API**  
+---  
+1. Install dependencies:  
+   ```bash
+   pip install fastapi uvicorn
+2. uvicorn rest_api:app --reload
+
+3. Open your browser and go to http://127.0.0.1:8000/docs
+to test the API interactively.
+
+**POST /send_alert body:**
+
+{
+  "message": "Flood warning in Cerritos",
+  "severity": "High"
+}
+
+**Response**
+
+{
+  "status": "Alert sent successfully",
+  "alert": {
+    "message": "Flood warning in Cerritos",
+    "severity": "High",
+    "timestamp": "2025-10-13 22:34:14"
+  }
+}
+
+**GET /get_status response:**
+
+{
+  "status": "Active",
+  "latest_alert": {
+    "message": "Flood warning in Cerritos",
+    "severity": "High",
+    "timestamp": "2025-10-13 22:34:14"
+  },
+  "total_alerts": 1
+}
+
+**Technologies Used:**
+Python 3
+
+FastAPI
+
+Uvicorn
+
+Pydantic
+
 
 
 
