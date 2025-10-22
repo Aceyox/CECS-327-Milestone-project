@@ -89,13 +89,16 @@ to test the API interactively.
 
 **POST /send_alert body:**
 
+```
 {
   "message": "Flood warning in Cerritos",
   "severity": "High"
 }
+```
 
 **Response**
 
+```
 {
   "status": "Alert sent successfully",
   "alert": {
@@ -104,9 +107,11 @@ to test the API interactively.
     "timestamp": "2025-10-13 22:34:14"
   }
 }
+```
 
 **GET /get_status response:**
 
+```
 {
   "status": "Active",
   "latest_alert": {
@@ -116,6 +121,7 @@ to test the API interactively.
   },
   "total_alerts": 1
 }
+```
 
 **Technologies Used:**
 Python 3
