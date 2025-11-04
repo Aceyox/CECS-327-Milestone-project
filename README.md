@@ -260,3 +260,19 @@ python3 synch_demo.py
 <img width="1700" height="146" alt="output demo3" src="https://github.com/user-attachments/assets/0c668df4-0e4a-45c3-8137-a8dde3cbd468" />
 
 
+
+## concurrent_alert_server.py — Concurrency Demo
+### How to Run
+1. Open your terminal and navigate to the project folder:
+   ```bash
+   cd CECS-327-Milestone-project
+Run the script:
+
+```bash
+python3 concurrent_alert_server.py
+```
+### Output: 
+<img width="1235" height="398" alt="Screenshot 2025-11-04 at 1 46 51 PM" src="https://github.com/user-attachments/assets/c3e591b5-a709-4b9e-b952-5167ff7bcb15" />
+
+
+
