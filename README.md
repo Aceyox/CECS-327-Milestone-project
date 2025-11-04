@@ -247,11 +247,11 @@ You can also publish alerts manually from the RabbitMQ Management UI by selectin
 
 # Milestone 3
 
-We extended the Disaster Alert System with OS level concurrency and peer to peer communication. OS level concurrency allows us to enable simultaneous alert handling by using multithreading and peer to peer communication allows distributed alert exchange between multiple peer nodes.
+We extended the Disaster Alert System with OS level concurrency and peer to peer communication. OS level concurrency allows us to enable simultaneous alert handling by using multithreading. Peer to peer communication allows distributed alert exchange between multiple peer nodes and removes the need for a central server.
 
 ## Added/edited files
 
-### sync_demo.py
+### synch_demo.py
 Demonstration script for synchronization and race condition handling
 ### concurrent_alert_server.py
 Enhanced alert server using threads and locks for concurrent client handling
@@ -260,7 +260,7 @@ Implements a peer-to-peer communication model
 
 ## How to Run
 
-## sync_demo.py — Concurrency & Synchronization Demo 
+## synch_demo.py — Concurrency & Synchronization Demo 
 1. Open your terminal and navigate to the project folder:
    ```bash
    cd CECS-327-Milestone-project
