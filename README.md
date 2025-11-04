@@ -10,6 +10,8 @@ Jorge Estrada
 Mario Robles
 Salvador Sanchez
 
+# Milestone 2
+
 # Part 1: Direct Communication – Interprocess Communication (IPC)
 
 **Summary**
@@ -243,7 +245,20 @@ The publisher prints a confirmation for each alert it sends to the `alerts` exch
 
 You can also publish alerts manually from the RabbitMQ Management UI by selecting the `alerts` exchange and using the "Publish message" panel. Enter a routing key such as `alerts.powerout` and a JSON payload. Any subscriber that is bound to a matching binding key (e.g., `alerts.#`) will immediately receive the message even without running the Python publisher.
 
-## synch_demo.py — Concurrency & Synchronization Demo 
+# Milestone 3
+
+We extended the Disaster Alert System with OS level concurrency and peer to peer communication. OS level concurrency allows us to enable simultaneous alert handling by using multithreading and peer to peer communication allows distributed alert exchange between multiple peer nodes.
+
+## Added/edited files
+
+### sync_demo.py
+Demonstration script for synchronization and race condition handling
+### concurrent_alert_server.py
+Enhanced alert server using threads and locks for concurrent client handling
+### peer_node.py
+Implements a peer-to-peer communication model
+
+## sync_demo.py — Concurrency & Synchronization Demo 
 ### How to Run
 1. Open your terminal and navigate to the project folder:
    ```bash
