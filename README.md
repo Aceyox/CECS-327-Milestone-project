@@ -258,8 +258,9 @@ Enhanced alert server using threads and locks for concurrent client handling
 ### peer_node.py
 Implements a peer-to-peer communication model
 
+## How to Run
+
 ## sync_demo.py — Concurrency & Synchronization Demo 
-### How to Run
 1. Open your terminal and navigate to the project folder:
    ```bash
    cd CECS-327-Milestone-project
@@ -277,7 +278,6 @@ python3 synch_demo.py
 
 
 ## concurrent_alert_server.py — Concurrency Demo
-### How to Run
 1. Open your terminal and navigate to the project folder:
    ```bash
    cd CECS-327-Milestone-project
