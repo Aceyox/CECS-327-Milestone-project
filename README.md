@@ -243,5 +243,20 @@ The publisher prints a confirmation for each alert it sends to the `alerts` exch
 
 You can also publish alerts manually from the RabbitMQ Management UI by selecting the `alerts` exchange and using the "Publish message" panel. Enter a routing key such as `alerts.powerout` and a JSON payload. Any subscriber that is bound to a matching binding key (e.g., `alerts.#`) will immediately receive the message even without running the Python publisher.
 
+## synch_demo.py — Concurrency & Synchronization Demo 
+### How to Run
+1. Open your terminal and navigate to the project folder:
+   ```bash
+   cd CECS-327-Milestone-project
+Run the script:
+
+bash
+Copy code
+python3 synch_demo.py
+
+### Output
+<img width="1205" height="262" alt="output demo1" src="https://github.com/user-attachments/assets/54b6f70f-f69c-4ead-8370-1531b21292d6" />
+<img width="1696" height="158" alt="output demo2" src="https://github.com/user-attachments/assets/20da6e9f-3135-401a-bc2c-b075b79bff6d" />
+<img width="1700" height="146" alt="output demo3" src="https://github.com/user-attachments/assets/0c668df4-0e4a-45c3-8137-a8dde3cbd468" />
 
 
