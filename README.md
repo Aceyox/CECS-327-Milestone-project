@@ -289,5 +289,18 @@ python3 concurrent_alert_server.py
 ### Output: 
 <img width="1235" height="398" alt="Screenshot 2025-11-04 at 1 46 51 PM" src="https://github.com/user-attachments/assets/c3e591b5-a709-4b9e-b952-5167ff7bcb15" />
 
+# Milestone 4
+
+## logical_clock.py
+
+This file simulates event ordering between disaster alert nodes using Lamport timestamps.
+To run it, open a terminal in the project folder and type:
+
+python3 logical_clock.py
+
+It shows how alerts like earthquake, fire, and evacuation are timestamped and ordered consistently across all nodes.
+
+Output:
+<img width="1507" height="575" alt="image" src="https://github.com/user-attachments/assets/e5e79b87-3de0-4747-8595-6522e924c4ee" />
 
 
