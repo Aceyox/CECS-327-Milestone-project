@@ -70,10 +70,10 @@ class TwoPhaseCommitTester:
         """Send a transaction to the coordinator"""
         txid = f"test-tx-{random.randint(1000, 9999)}"
         
-        print(f"\n{'------'}")
+        print(f"\n{'------------'}")
         print(f"TEST TRANSACTION: {txid}")
         print(f"Writes: {writes}")
-        print(f"{'------'}\n")
+        print(f"{'------------'}\n")
         
         # Simulate coordinator behavior
         votes = []
@@ -129,9 +129,9 @@ def test_network_partition_during_prepare():
     Test behavior when a node becomes unreachable during the prepare phase.
     Expected: Transaction should ABORT because not all nodes can participate.
     """
-    print("\n" + "------")
+    print("\n" + "------------")
     print("TEST 1: NETWORK PARTITION DURING PREPARE PHASE")
-    print("------")
+    print("------------")
     
     tester = TwoPhaseCommitTester()
     nodes = tester.setup_participants(3)
@@ -170,9 +170,9 @@ def test_node_failure_during_commit():
     the commit message.
     Expected: Other nodes should still commit successfully.
     """
-    print("\n" + "------")
+    print("\n" + "------------")
     print("TEST 2: NODE FAILURE DURING COMMIT PHASE")
-    print("------")
+    print("------------")
     
     tester = TwoPhaseCommitTester()
     nodes = tester.setup_participants(3)
@@ -242,9 +242,9 @@ def test_simultaneous_writes():
     Test behavior when two transactions try to write to the same key simultaneously.
     Expected: One should succeed, one should abort due to lock conflict.
     """
-    print("\n" + "------")
+    print("\n" + "------------")
     print("TEST 3: SIMULTANEOUS CONFLICTING WRITES")
-    print("------")
+    print("------------")
     
     tester = TwoPhaseCommitTester()
     nodes = tester.setup_participants(2)
@@ -316,9 +316,9 @@ def test_simultaneous_writes():
         t2.join()
         
         # Analyze results
-        print("\n" + "------")
+        print("\n" + "------------")
         print("FINAL RESULTS:")
-        print("------")
+        print("------------")
         commits = sum(1 for r in results if r['decision'] == 'COMMIT')
         aborts = sum(1 for r in results if r['decision'] == 'ABORT')
         
@@ -330,7 +330,7 @@ def test_simultaneous_writes():
         if commits == 1 and aborts == 1:
             print("[PASS] Exactly one transaction committed (proper lock handling)")
         elif commits == 2:
-            print("[FAIL] Both transactions committed (lost update!)")
+            print("[FAIL] Both transactions committed (lost update)")
         else:
             print("[FAIL] Both transactions aborted (potential deadlock)")
             
@@ -346,9 +346,9 @@ def test_cascading_conflicts():
     Test with multiple transactions writing to overlapping key sets.
     Expected: Proper serialization through locks.
     """
-    print("\n" + "------")
+    print("\n" + "------------")
     print("TEST 4: CASCADING WRITE CONFLICTS (3 TRANSACTIONS)")
-    print("------")
+    print("------------")
     
     tester = TwoPhaseCommitTester()
     nodes = tester.setup_participants(2)
@@ -382,7 +382,7 @@ def test_cascading_conflicts():
         for t in threads:
             t.join()
         
-        print("\n" + "------")
+        print("\n" + "------------")
         print("RESULTS:")
         for r in results:
             print(f"  TX{r['tx']}: {r['decision']}")
@@ -399,9 +399,9 @@ def test_cascading_conflicts():
 # RUN ALL TESTS
  
 if __name__ == "__main__":
-    print("\n" + "------")
+    print("\n" + "------------")
     print("TESTING")
-    print("------")
+    print("------------")
     
     tests = [
         ("Network Partition During Prepare", test_network_partition_during_prepare),
@@ -422,8 +422,8 @@ if __name__ == "__main__":
             import traceback
             traceback.print_exc()
     
-    print("\n""------")
+    print("\n""------------")
     print("TEST COMPLETE")
-    print("------")
+    print("------------")
     print("\nNOTE: Review output above to verify expected behaviors.")
     print("Look for [PASS] markers and check participant logs.\n")
