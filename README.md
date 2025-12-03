@@ -303,4 +303,34 @@ It shows how alerts like earthquake, fire, and evacuation are timestamped and or
 Output:
 <img width="1507" height="575" alt="image" src="https://github.com/user-attachments/assets/e5e79b87-3de0-4747-8595-6522e924c4ee" />
 
+Ricart-Agrawala
+
+The Ricart–Agrawala algorithm enforces mutual exclusion within a system that is composed of a large number of unaffiliated peers, any of which can perform operations that affect the external world. These operations are often time-critical, as is the case when they involve adjusting the behavior of a traffic signal. In such a system, it is essential that only one peer perform a concerted operation at any given time; otherwise, the external world might be negatively affected by the operation of two or more peers that are trying to do the same thing at once (and failing, in the case of a time-critical operation, for 
+
+reasons of overlap and concurrency). To enforce this mutual exclusion, Ricart and Agrawala devised a simple and elegantly effective algorithm.
+
+<img width="688" height="510" alt="image" src="https://github.com/user-attachments/assets/a87740dd-dc35-449a-a13c-43e5fceae7ff" />
+
+The Ricart–Agrawala protocol guarantees that only one node enters the critical section at any given moment, and it does so without a central coordinator. Instead, each node maintains a logically consistent timestamp based on Lamport logical clocks. When a node wishes to enter the critical section, it increments its timestamp, sends a REQUEST message to every other node in the system, and waits. Each receiving node, upon getting the REQUEST message, compares its own timestamp with that of the requester. If the receiving node is not already in the critical section, or if it has a logically later timestamp (meaning the REQUESTer has higher priority and should go first), it sends back a REPLY with no further ado. If the receiving node is in the critical section (which it shouldn't be, because this is a correct protocol), it sends back a REPLY as soon 
+
+<img width="255" height="387" alt="image" src="https://github.com/user-attachments/assets/5f7117ac-b919-4a01-b32d-c884bad10a4f" />
+<img width="422" height="310" alt="image" src="https://github.com/user-attachments/assets/50fb361b-cd20-456c-8e13-88ce42f4a55a" />
+**Coordination_protocol.py**
+Distributed nodes in our system do not update at the same time, which would cause inconsistent data. To do this, I implemented a distributed mutual exclusion protocol using Ricart Agrawala along with Lamport timestamps.
+
+This allows all our nodes to reach agreement on who gets to perform an update first even if messages arrive late or out of order.
+
+
+**TEST CASES:**
+<img width="429" height="406" alt="image" src="https://github.com/user-attachments/assets/55125bc6-8b27-4f82-af79-93c5ec714a88" />
+
+<img width="299" height="277" alt="image" src="https://github.com/user-attachments/assets/c3410f2e-47d2-466b-9a42-281f2505e907" />
+
+<img width="394" height="309" alt="image" src="https://github.com/user-attachments/assets/bc217710-8aca-42c8-bb7f-e56aa95a83ff" />
+<img width="245" height="334" alt="image" src="https://github.com/user-attachments/assets/7b52f1f2-da4c-471e-a8e9-8f3f40a042cf" />
+
+
+
+
+
 
